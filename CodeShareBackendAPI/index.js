@@ -33,7 +33,7 @@ app.post('/:id',async (req,res)=>{
     const insertedCode = await codeSave.save();
     res.status(201).json(insertedCode);
 })
-app.put('/:id',async (req,res)=>{
+app.patch('/:id',async (req,res)=>{
     const id = req.params.id;
     const {code,language} = req.body;
     await codeMod.findOneAndUpdate({"id":id},{code,language});
