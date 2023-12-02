@@ -24,11 +24,13 @@ app.use(expressSession({
 app.get('/:id',async (req,res)=>{
     const id = req.params.id;
     const codeSave = await codeMod.findOne({"id":id});
-    // const code = new codeMod({"id":"ggsbscd","code":"swvjhgvwkdkwdkwjdvjwdvkdvk","language":"javascript"});
-    // const insertedCode = await code.save();
+    
     res.status(201).json(codeSave)
 });
-app.post('/:id',(req,res)=>{
+app.post('/:id',async (req,res)=>{
+    const {id,code,language} = req.body;
+    const codeSave = new codeMod({id,code,language});
+    const insertedCode = await codeSave.save();
     res.status(201).json(req.body);
 })
 //shdgudiehdied
