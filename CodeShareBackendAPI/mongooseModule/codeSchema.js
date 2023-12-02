@@ -9,6 +9,10 @@ const codeSaveSchema = new Schema({
     code:{
         type:String,
         required:true
+    },
+    language:{
+        type:String,
+        required:true
     }
 });
 

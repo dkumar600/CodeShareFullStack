@@ -21,8 +21,8 @@ app.use(expressSession({
     saveUninitialized: true,
   }));
 
-app.get('/:id',async (req,res)=>{
-    const code = new codeMod({"id":"ggsbscd","code":"swvjhgvwkdkwdkwjdvjwdvkdvk"});
+app.get('/',async (req,res)=>{
+    const code = new codeMod({"id":"ggsbscd","code":"swvjhgvwkdkwdkwjdvjwdvkdvk","language":"javascript"});
     const insertedCode = await code.save();
     res.status(201).json(insertedCode)
 });
