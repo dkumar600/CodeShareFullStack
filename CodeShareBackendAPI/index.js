@@ -31,7 +31,7 @@ app.post('/:id',async (req,res)=>{
     const {id,code,language} = req.body;
     const codeSave = new codeMod({id,code,language});
     const insertedCode = await codeSave.save();
-    res.status(201).json(req.body);
+    res.status(201).json(insertedCode);
 })
 //shdgudiehdied
 // app.post('/', async (req,res)=>{
