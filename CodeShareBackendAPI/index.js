@@ -28,8 +28,8 @@ app.get('/:id',async (req,res)=>{
     // const insertedCode = await code.save();
     res.status(201).json(codeSave)
 });
-app.get('/re',(req,res)=>{
-    console.log("Re");
+app.post('/:id',(req,res)=>{
+    res.status(201).json(req.body);
 })
 //shdgudiehdied
 // app.post('/', async (req,res)=>{
