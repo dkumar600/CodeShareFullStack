@@ -29,9 +29,13 @@ app.get('/:id',async (req,res)=>{
 });
 app.post('/:id',async (req,res)=>{
     const {id,code,language} = req.body;
-    const codeSave = new codeMod({id,code,language});
-    const insertedCode = await codeSave.save();
-    res.status(201).json(insertedCode);
+    const codeDetail = await codeMod.findOne({"id":id});
+    if(codeDetail.id !== id){
+        const codeSave = new codeMod({id,code,language});
+        const insertedCode = await codeSave.save();
+        res.status(201).json(insertedCode);
+    }
+    
 })
 app.patch('/:id',async (req,res)=>{
     const id = req.params.id;
