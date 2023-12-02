@@ -35,6 +35,7 @@ app.post('/:id',async (req,res)=>{
         const insertedCode = await codeSave.save();
         res.status(201).json(insertedCode);
     }
+    res.status(302);
     
 })
 app.patch('/:id',async (req,res)=>{
